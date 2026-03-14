@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RADIOACTIVE HARVEST - Granja Radioactiva</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- PANTALLA DE TITULO -->
+        <div id="title-screen">
+            <div class="scanlines"></div>
+            <pre class="title-art">
+ ██████╗  █████╗ ██████╗ ██╗ ██████╗
+ ██╔══██╗██╔══██╗██╔══██╗██║██╔═══██╗
+ ██████╔╝███████║██║  ██║██║██║   ██║
+ ██╔══██╗██╔══██║██║  ██║██║██║   ██║
+ ██║  ██║██║  ██║██████╔╝██║╚██████╔╝
+ ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝ ╚═════╝
+    ██╗  ██╗ █████╗ ██████╗ ██╗   ██╗███████╗███████╗████████╗
+    ██║  ██║██╔══██╗██╔══██╗██║   ██║██╔════╝██╔════╝╚══██╔══╝
+    ███████║███████║██████╔╝██║   ██║█████╗  ███████╗   ██║
+    ██╔══██║██╔══██║██╔══██╗╚██╗ ██╔╝██╔══╝  ╚════██║   ██║
+    ██║  ██║██║  ██║██║  ██║ ╚████╔╝ ███████╗███████║   ██║
+    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚══════╝   ╚═╝
+            </pre>
+            <p class="subtitle blink">☢ GRANJA RADIOACTIVA ☢</p>
+            <p class="instructions">Cultiva plantas mutantes para la guerra nuclear</p>
+            <button id="btn-start" class="retro-btn">▶ INICIAR JUEGO</button>
+            <p class="credits">© 1986 RETRO SOFT</p>
+        </div>
+
+        <!-- PANTALLA DE JUEGO -->
+        <div id="game-screen" class="hidden">
+            <div class="scanlines"></div>
+
+            <!-- HUD SUPERIOR -->
+            <div id="hud">
+                <div class="hud-item">
+                    <span class="hud-label">DINERO:</span>
+                    <span id="money">$500</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">DIA:</span>
+                    <span id="day">1</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">NIVEL:</span>
+                    <span id="level">1</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">REPUTACION:</span>
+                    <span id="reputation">★☆☆☆☆</span>
+                </div>
+            </div>
+
+            <!-- AREA PRINCIPAL -->
+            <div id="main-area">
+                <!-- GRANJA -->
+                <div id="farm-area">
+                    <h2 class="section-title">☢ TU GRANJA ☢</h2>
+                    <div id="farm-grid">
+                        <!-- Las parcelas se generan dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- PANEL LATERAL -->
+                <div id="side-panel">
+                    <!-- TIENDA -->
+                    <div id="shop" class="panel-section">
+                        <h3 class="panel-title">⌂ TIENDA</h3>
+                        <div id="shop-items">
+                            <!-- Items de tienda generados dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- INVENTARIO -->
+                    <div id="inventory" class="panel-section">
+                        <h3 class="panel-title">◈ INVENTARIO</h3>
+                        <div id="inventory-items"></div>
+                    </div>
+
+                    <!-- ACCIONES -->
+                    <div id="actions" class="panel-section">
+                        <h3 class="panel-title">⚡ ACCIONES</h3>
+                        <button class="retro-btn action-btn" id="btn-water" title="Regar plantas">💧 REGAR</button>
+                        <button class="retro-btn action-btn" id="btn-fertilize" title="Fertilizar">☢ MUTAR</button>
+                        <button class="retro-btn action-btn" id="btn-harvest" title="Cosechar">✂ COSECHAR</button>
+                        <button class="retro-btn action-btn" id="btn-sell" title="Vender cosecha">$ VENDER</button>
+                    </div>
+
+                    <!-- CONTRATOS MILITARES -->
+                    <div id="contracts" class="panel-section">
+                        <h3 class="panel-title">✉ CONTRATOS</h3>
+                        <div id="contract-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONSOLA DE MENSAJES -->
+            <div id="console">
+                <div id="console-messages"></div>
+            </div>
+
+            <!-- BOTON PASAR DIA -->
+            <div id="bottom-bar">
+                <button class="retro-btn" id="btn-next-day">▶▶ PASAR DIA</button>
+                <button class="retro-btn" id="btn-expand" title="Expandir granja">⊞ EXPANDIR ($1000)</button>
+                <button class="retro-btn" id="btn-save">💾 GUARDAR</button>
+            </div>
+        </div>
+
+        <!-- PANTALLA DE GAME OVER / VICTORIA -->
+        <div id="end-screen" class="hidden">
+            <div class="scanlines"></div>
+            <h1 id="end-title"></h1>
+            <p id="end-message"></p>
+            <div id="end-stats"></div>
+            <button class="retro-btn" id="btn-restart">▶ JUGAR DE NUEVO</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
